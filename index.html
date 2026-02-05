@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qurrata Ayyunda Prayogi - Portfolio</title>
+    
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+</head>
+<body class="preload">
+    <!-- Loading Overlay (optional) -->
+    <div class="page-loader">
+        <div class="loader-spinner">
+            <i class="fas fa-code"></i>
+        </div>
+    </div>
+
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">QAP</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="pages/resume.html">Resume</a></li>
+                <li><a href="pages/projects.html">Projects</a></li>
+                <li><a href="pages/contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-name">Qurrata Ayyunda Prayogi</h1>
+                <h2 class="hero-role">Information Systems Student</h2>
+                <p class="hero-tagline">Designing Thoughtful Digital Systems for Education & Well-Being</p>
+                <p class="hero-description">Mahasiswa D3 Sistem Informasi dengan fokus pada pengembangan sistem digital yang berdampak positif untuk pendidikan dan kesehatan masyarakat.</p>
+                <div class="hero-buttons">
+                    <a href="pages/projects.html" class="btn btn-primary">View Projects <i class="fas fa-arrow-right"></i></a>
+                    <a href="CV_Qurrata_Ayyunda_Prayogi.pdf" class="btn btn-secondary" download>Download Resume <i class="fas fa-download"></i></a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="photo-container" id="photoContainer">
+                    <img src="foto.jpeg" alt="Qurrata Ayyunda Prayogi" class="profile-photo" id="profilePhoto" loading="lazy">
+                    <div class="photo-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="highlights">
+            <div class="container">
+                <h2 class="section-title">Highlights</h2>
+                <div class="highlight-cards">
+                    <div class="highlight-card">
+                        <div class="highlight-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Pendidikan</h3>
+                        <p>D3 Sistem Informasi, Universitas Dinamika Surabaya</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3>Pengalaman Kerja</h3>
+                        <p>3 perusahaan dalam bidang konsultasi, perbankan, dan pengembangan AI</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>Pencapaian</h3>
+                        <p>Finalis TECHCOMFEST 2026 - Web Application Competition</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="quick-links">
+            <div class="container">
+                <h2 class="section-title">Jelajahi Lebih Lanjut</h2>
+                <div class="links-grid">
+                    <a href="pages/resume.html" class="quick-link-card">
+                        <i class="fas fa-file-alt"></i>
+                        <h3>Resume Lengkap</h3>
+                        <p>Lihat pendidikan, pengalaman, dan sertifikasi saya</p>
+                    </a>
+                    <a href="pages/projects.html" class="quick-link-card">
+                        <i class="fas fa-code"></i>
+                        <h3>Proyek Terbaru</h3>
+                        <p>Eksplorasi proyek pengembangan web dan sistem</p>
+                    </a>
+                    <a href="pages/contact.html" class="quick-link-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Hubungi Saya</h3>
+                        <p>Kolaborasi atau tanyakan sesuatu</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Photo Modal -->
+    <div class="photo-modal" id="photoModal">
+        <span class="photo-modal-close" id="modalClose">&times;</span>
+        <div class="photo-modal-content">
+            <img src="" alt="Qurrata Ayyunda Prayogi - Full Size" id="modalPhoto">
+            <div class="photo-modal-info">
+                <h3>Qurrata Ayyunda Prayogi</h3>
+                <p>Information Systems Student</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> Qurrata Ayyunda Prayogi. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="pages/contact.html"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/qurrata-ayvunda-prayogi-4b18a1351/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/qurratayunda-bot" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/qurratayunda" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+    
+    <!-- NoScript Fallback -->
+    <noscript>
+        <div class="noscript-warning">
+            <p>⚠️ JavaScript is disabled in your browser. Some features may not work properly.</p>
+        </div>
+        <style>
+            .noscript-warning {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                background: #ff6b6b;
+                color: white;
+                padding: 10px;
+                text-align: center;
+                z-index: 9999;
+            }
+        </style>
+    </noscript>
+</body>
+</html>

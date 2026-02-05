@@ -1,0 +1,345 @@
+/* photo.css - Styles for photo handling */
+
+/* Photo Container */
+.photo-container {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 10px solid white;
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition-slow);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.photo-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Profile Photo with automatic sizing */
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: var(--transition-slow);
+    display: block;
+}
+
+/* Ensure photo scales properly on hover */
+.photo-container:hover .profile-photo {
+    transform: scale(1.1);
+}
+
+/* Photo Overlay */
+.photo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.photo-overlay i {
+    font-size: 3rem;
+    color: white;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.photo-container:hover .photo-overlay {
+    opacity: 1;
+}
+
+/* Photo Fallback */
+.photo-container::before {
+    content: '\f007';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 8rem;
+    color: var(--primary-color);
+    opacity: 0.8;
+    position: absolute;
+    z-index: 0;
+    display: none;
+}
+
+/* Error State */
+.photo-container.error::before {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.photo-container.error .profile-photo,
+.photo-container.error .photo-overlay {
+    display: none;
+}
+
+.photo-error-message {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    z-index: 2;
+}
+
+.photo-error-message i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.photo-error-message p {
+    color: var(--text-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Photo Loading State */
+.profile-photo.loading {
+    animation: pulse 1.5s infinite;
+    filter: blur(5px);
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.6;
+    }
+}
+
+/* Photo Modal */
+.photo-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: fadeIn 0.3s ease;
+}
+
+.photo-modal.active {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.photo-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+    z-index: 2001;
+}
+
+.photo-modal-close:hover {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+.photo-modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.photo-modal-content img {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    object-fit: contain;
+}
+
+.photo-modal-info {
+    margin-top: 20px;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    max-width: 500px;
+}
+
+.photo-modal-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.photo-modal-info p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Responsive Photo Styles */
+@media (max-width: 992px) {
+    .photo-container {
+        width: 280px;
+        height: 280px;
+    }
+    
+    .photo-overlay i {
+        font-size: 2.5rem;
+    }
+    
+    .photo-container::before {
+        font-size: 6rem;
+    }
+    
+    .photo-modal-info h3 {
+        font-size: 1.5rem;
+    }
+    
+    .photo-modal-info p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .photo-container {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .photo-overlay i {
+        font-size: 2rem;
+    }
+    
+    .photo-container::before {
+        font-size: 5rem;
+    }
+    
+    .photo-modal-info {
+        padding: 15px;
+    }
+    
+    .photo-modal-info h3 {
+        font-size: 1.3rem;
+    }
+    
+    .photo-modal-info p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .photo-container {
+        width: 220px;
+        height: 220px;
+        border-width: 8px;
+    }
+    
+    .photo-overlay i {
+        font-size: 1.8rem;
+    }
+    
+    .photo-container::before {
+        font-size: 4rem;
+    }
+    
+    .photo-modal-close {
+        top: 15px;
+        right: 20px;
+        font-size: 35px;
+    }
+    
+    .photo-modal-content {
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 375px) {
+    .photo-container {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .photo-overlay i {
+        font-size: 1.5rem;
+    }
+    
+    .photo-modal-info h3 {
+        font-size: 1.2rem;
+    }
+    
+    .photo-modal-info p {
+        font-size: 0.85rem;
+    }
+}
+
+/* Print Styles for Photo */
+@media print {
+    .photo-container {
+        border: 2px solid #000 !important;
+        box-shadow: none !important;
+    }
+    
+    .photo-overlay {
+        display: none !important;
+    }
+    
+    .photo-modal {
+        display: none !important;
+    }
+}
